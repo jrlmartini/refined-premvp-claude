@@ -36,7 +36,7 @@ export function TopClientsCard() {
 
         {/* Table */}
         <div className="flex-1">
-          <table className="w-full text-[13px]">
+          <table className="w-full text-[16px]">
             <thead>
               <tr className="text-left text-[var(--txt-secondary)]">
                 <th className="pb-2 font-normal">Cliente</th>
@@ -46,18 +46,21 @@ export function TopClientsCard() {
             </thead>
             <tbody>
               {topClientsData.map((client, i) => (
-                <tr key={client.name} className="border-t-[0.5px] border-[var(--str-default)]">
-                  <td className="py-1.5 flex items-center gap-2">
+                <tr
+                  key={client.name}
+                  className="border-t-[var(--border-default)] border-[var(--str-default)] transition-colors hover:border-x-[var(--border-highlight)] hover:border-x-[var(--str-hover)]"
+                >
+                  <td className="py-2 flex items-center gap-2">
                     <span
-                      className="inline-block h-2.5 w-2.5 rounded-full"
+                      className="inline-block h-2 w-2 rounded-full"
                       style={{ backgroundColor: CHART_COLOR_ARRAY[i % CHART_COLOR_ARRAY.length] }}
                     />
                     <span className="text-[var(--txt-main)]">{client.name}</span>
                   </td>
-                  <td className="tabular-nums py-1.5 text-right text-[var(--txt-main)]">
+                  <td className="tabular-nums py-2 text-right text-[var(--txt-main)]">
                     {formatBRL(client.revenue)}
                   </td>
-                  <td className="tabular-nums py-1.5 text-right text-[var(--txt-secondary)]">
+                  <td className="tabular-nums py-2 text-right text-[var(--txt-secondary)]">
                     {formatPercent(client.share)}
                   </td>
                 </tr>

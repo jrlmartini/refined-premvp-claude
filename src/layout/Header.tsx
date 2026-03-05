@@ -21,7 +21,7 @@ export function Header({ onMenuClick, isKiosk, onToggleKiosk, sidebarCollapsed }
   return (
     <header
       className={cn(
-        'sticky top-0 z-30 flex h-16 items-center justify-between border-b-[0.5px] border-[var(--str-default)] bg-[var(--bg-card)] px-4 transition-all duration-300',
+        'sticky top-0 z-30 flex h-16 items-center justify-between border-b-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-card)] px-4 transition-all duration-300',
         !isKiosk && (sidebarCollapsed ? 'md:ml-16' : 'md:ml-56'),
       )}
     >
@@ -36,7 +36,7 @@ export function Header({ onMenuClick, isKiosk, onToggleKiosk, sidebarCollapsed }
         </button>
         <div>
           <h1 className="text-[16px] font-semibold text-[var(--txt-main)]">Dashboard Executivo</h1>
-          <p className="text-[12px] text-[var(--txt-secondary)] capitalize">{getCurrentDate()}</p>
+          <p className="text-[16px] text-[var(--txt-secondary)] capitalize">{getCurrentDate()}</p>
         </div>
       </div>
 
@@ -71,13 +71,13 @@ export function Header({ onMenuClick, isKiosk, onToggleKiosk, sidebarCollapsed }
 
         {/* Avatar */}
         <button
-          className="flex items-center gap-2 rounded-[var(--radius-sm)] p-1.5 text-[var(--txt-muted)] hover:text-[var(--txt-main)] transition-colors"
+          className="flex items-center gap-2 rounded-[var(--radius-sm)] p-2 text-[var(--txt-muted)] hover:text-[var(--txt-main)] transition-colors"
           aria-label="Perfil do usuário"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--bg-button)]">
             <User size={16} className="text-[var(--txt-main)]" />
           </div>
-          <span className="hidden text-[13px] text-[var(--txt-main)] lg:inline">Admin</span>
+          <span className="hidden text-[16px] text-[var(--txt-main)] lg:inline">Admin</span>
         </button>
       </div>
     </header>

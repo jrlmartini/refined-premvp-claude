@@ -12,21 +12,21 @@ export function WaterMetricsCard() {
         action={<Droplets size={20} className="text-[var(--chart-3)]" />}
       />
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {waterMetricsData.map((metric) => (
           <div
             key={metric.label}
-            className="rounded-[var(--radius-sm)] border-[0.5px] border-[var(--str-default)] bg-[var(--bg-main)] p-3"
+            className="rounded-[var(--radius-sm)] border-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-main)] p-4"
           >
-            <p className="mb-1 text-[12px] text-[var(--txt-secondary)]">{metric.label}</p>
+            <p className="mb-2 text-[16px] text-[var(--txt-secondary)]">{metric.label}</p>
             <p className="tabular-nums text-[20px] font-semibold text-[var(--txt-main)]">
               {metric.unit === '%' ? formatPercent(metric.value) : formatNumber(metric.value)}
               {metric.unit && metric.unit !== '%' && (
-                <span className="ml-1 text-[12px] text-[var(--txt-muted)]">{metric.unit}</span>
+                <span className="ml-2 text-[16px] text-[var(--txt-muted)]">{metric.unit}</span>
               )}
             </p>
-            <div className="mt-1 flex items-center gap-1.5">
-              <span className="text-[11px] text-[var(--txt-muted)]">
+            <div className="mt-2 flex items-center gap-2">
+              <span className="text-[16px] text-[var(--txt-muted)]">
                 Meta: {metric.unit === '%' ? formatPercent(metric.target) : formatNumber(metric.target)}
                 {metric.unit && metric.unit !== '%' ? ` ${metric.unit}` : ''}
               </span>

@@ -45,6 +45,11 @@
   --radius-md: 12px;
   --radius-lg: 16px;
 
+  /* ── Borders ── */
+  --border-default: 0.5px;
+  --border-highlight: 1.5px;
+  --border-selected: 1px;
+
   /* ── Typography ── */
   --font-family: 'Outfit', sans-serif;
 }

@@ -13,7 +13,7 @@ export function ContractsCard() {
       <CardHeader title="Contratos" subtitle="Visão geral e pipeline" />
 
       {/* KPI tiles */}
-      <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <MiniKPI icon={FileText} label="Total" value={total} variant="default" />
         <MiniKPI icon={CheckCircle} label="Ativos" value={active} variant="success" />
         <MiniKPI icon={AlertTriangle} label="A vencer" value={expiringSoon} variant="warning" />
@@ -21,7 +21,7 @@ export function ContractsCard() {
       </div>
 
       {/* Pipeline chart */}
-      <p className="mb-2 text-[13px] text-[var(--txt-secondary)]">Pipeline por estágio</p>
+      <p className="mb-2 text-[16px] text-[var(--txt-secondary)]">Pipeline por estágio</p>
       <div className="h-40">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={pipeline} layout="vertical" barSize={16}>
@@ -56,15 +56,15 @@ function MiniKPI({
   }
 
   return (
-    <div className="rounded-[var(--radius-sm)] border-[0.5px] border-[var(--str-default)] bg-[var(--bg-main)] p-3">
-      <div className="mb-1 flex items-center gap-1.5">
+    <div className="rounded-[var(--radius-sm)] border-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-main)] p-4">
+      <div className="mb-2 flex items-center gap-2">
         <Icon size={14} className={classMap[variant]} />
-        <span className="text-[12px] text-[var(--txt-secondary)]">{label}</span>
+        <span className="text-[16px] text-[var(--txt-secondary)]">{label}</span>
       </div>
       <p className={`tabular-nums text-[20px] font-semibold ${classMap[variant]}`}>
         {value}
       </p>
-      <Badge variant={variant} className="mt-1">
+      <Badge variant={variant} className="mt-2">
         {label}
       </Badge>
     </div>

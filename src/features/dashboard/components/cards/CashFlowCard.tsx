@@ -16,7 +16,7 @@ export function CashFlowCard() {
             <XAxis dataKey="month" {...axisStyle} />
             <YAxis {...axisStyle} tickFormatter={(v: number) => formatBRL(v)} />
             <Tooltip content={<ChartTooltip formatValue={(v) => formatBRL(v)} />} />
-            <Legend wrapperStyle={{ fontSize: 12, color: 'var(--txt-secondary)' }} />
+            <Legend wrapperStyle={{ fontSize: 16, color: 'var(--txt-secondary)' }} />
             <Bar dataKey="entrada" name="Entrada" fill={CHART_COLORS.chart4} radius={[4, 4, 0, 0]} />
             <Bar dataKey="saida" name="Saída" fill={CHART_COLORS.chart7} radius={[4, 4, 0, 0]} />
           </BarChart>
