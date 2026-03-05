@@ -57,10 +57,10 @@ function KPIBlock({ label, value, meta, delta }: { label: string; value: number;
   const isPositive = delta >= 0
   return (
     <div>
-      <p className="text-[16px] text-[var(--txt-secondary)]">{label}</p>
-      <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">{formatBRL(value)}</p>
+      <p className="text-[var(--text-body)] text-[var(--txt-secondary)]">{label}</p>
+      <p className="tabular-nums text-[var(--text-display)] font-bold text-[var(--txt-main)] leading-tight">{formatBRL(value)}</p>
       <div className="mt-2 flex items-center gap-2">
-        <span className="text-[16px] text-[var(--txt-muted)]">Meta: {formatBRL(meta)}</span>
+        <span className="text-[var(--text-body)] text-[var(--txt-muted)]">Meta: {formatBRL(meta)}</span>
         <Badge variant={isPositive ? 'success' : 'danger'}>
           {isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
           {formatPercent(Math.abs(delta))}

@@ -14,10 +14,10 @@ export function EbitdaCard() {
         action={<Badge variant="success">{formatPercent(margin)} margem</Badge>}
       />
 
-      <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">
+      <p className="tabular-nums text-[var(--text-display)] font-bold text-[var(--txt-main)] leading-tight">
         {formatBRL(current)}
       </p>
-      <p className="mb-4 text-[16px] text-[var(--txt-secondary)]">Acumulado do período</p>
+      <p className="mb-4 text-[var(--text-body)] text-[var(--txt-secondary)]">Acumulado do período</p>
 
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">

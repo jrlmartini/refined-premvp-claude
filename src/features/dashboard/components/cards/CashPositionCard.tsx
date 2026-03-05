@@ -20,10 +20,10 @@ export function CashPositionCard() {
         }
       />
 
-      <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">
+      <p className="tabular-nums text-[var(--text-display)] font-bold text-[var(--txt-main)] leading-tight">
         {formatBRL(current)}
       </p>
-      <p className="mb-4 text-[16px] text-[var(--txt-secondary)]">Saldo atual consolidado</p>
+      <p className="mb-4 text-[var(--text-body)] text-[var(--txt-secondary)]">Saldo atual consolidado</p>
 
       <div className="h-36">
         <ResponsiveContainer width="100%" height="100%">

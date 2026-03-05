@@ -36,7 +36,7 @@ export function TopClientsCard() {
 
         {/* Table */}
         <div className="flex-1">
-          <table className="w-full text-[16px]">
+          <table className="w-full text-[var(--text-body)]">
             <thead>
               <tr className="text-left text-[var(--txt-secondary)]">
                 <th className="pb-2 font-normal">Cliente</th>

@@ -35,8 +35,8 @@ export function Header({ onMenuClick, isKiosk, onToggleKiosk, sidebarCollapsed }
           <Menu size={20} />
         </button>
         <div>
-          <h1 className="text-[16px] font-semibold text-[var(--txt-main)]">Dashboard Executivo</h1>
-          <p className="text-[16px] text-[var(--txt-secondary)] capitalize">{getCurrentDate()}</p>
+          <h1 className="text-[var(--text-h1)] font-semibold text-[var(--txt-main)]">Dashboard Executivo</h1>
+          <p className="text-[var(--text-body)] text-[var(--txt-secondary)] capitalize">{getCurrentDate()}</p>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export function Header({ onMenuClick, isKiosk, onToggleKiosk, sidebarCollapsed }
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--bg-button)]">
             <User size={16} className="text-[var(--txt-main)]" />
           </div>
-          <span className="hidden text-[16px] text-[var(--txt-main)] lg:inline">Admin</span>
+          <span className="hidden text-[var(--text-body)] text-[var(--txt-main)] lg:inline">Admin</span>
         </button>
       </div>
     </header>
