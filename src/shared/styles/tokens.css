@@ -50,6 +50,18 @@
   --border-highlight: 1.5px;
   --border-selected: 1px;
 
+  /* ── Spacing (8px scale) ── */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+
   /* ── Typography ── */
   --font-family: 'Outfit', sans-serif;
+  --text-display: 30px;
+  --text-h1: 24px;
+  --text-h2: 20px;
+  --text-body: 16px;
 }

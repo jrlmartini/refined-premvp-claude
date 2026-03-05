@@ -10,6 +10,7 @@ const files = execSync("find src -type f \\( -name '*.ts' -o -name '*.tsx' -o -n
 
 const rawColorRegex = /#[0-9a-fA-F]{3,8}\b/g
 const offScaleRegex = /\b(?:p|px|py|pt|pb|pl|pr|m|mx|my|mt|mb|ml|mr|gap)-(?:1|3|5|7|9|10|11|13|14|15|17|18|19|21|22|23|25)\b/g
+const hardcodedTextRegex = /\btext-\[\d+px\]/g
 
 const issues = []
 
@@ -24,6 +25,12 @@ for (const file of files) {
 
   for (const match of content.matchAll(offScaleRegex)) {
     issues.push(`${file}: off-scale spacing token ${match[0]}`)
+  }
+
+  if (!file.endsWith('tokens.css') && !file.endsWith('.css')) {
+    for (const match of content.matchAll(hardcodedTextRegex)) {
+      issues.push(`${file}: hardcoded text size ${match[0]} — use typography tokens (--text-display, --text-h1, --text-h2, --text-body)`)
+    }
   }
 }
 

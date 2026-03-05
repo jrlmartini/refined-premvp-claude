@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Card, CardHeader, Badge } from '@/shared/ui'
 import { ChartTooltip } from '@/shared/ui/ChartTooltip'
 import { formatBRL, formatPercent, CHART_COLOR_ARRAY, axisStyle, gridStyle } from '@/shared/lib'
@@ -13,8 +13,8 @@ export function AgingCard() {
         title="Aging — Contas a Receber"
         action={
           <div className="text-right">
-            <p className="tabular-nums text-[20px] font-semibold text-[var(--txt-main)]">{formatBRL(total)}</p>
-            <p className="text-[16px] text-[var(--txt-secondary)]">Total</p>
+            <p className="tabular-nums text-[var(--text-h2)] font-semibold text-[var(--txt-main)]">{formatBRL(total)}</p>
+            <p className="text-[var(--text-body)] text-[var(--txt-secondary)]">Total</p>
           </div>
         }
       />
@@ -29,7 +29,7 @@ export function AgingCard() {
             <Tooltip content={<ChartTooltip formatValue={(v) => formatBRL(v)} />} />
             <Bar dataKey="amount" name="Valor" radius={[4, 4, 0, 0]}>
               {agingData.map((_, i) => (
-                <rect key={i} fill={CHART_COLOR_ARRAY[i % CHART_COLOR_ARRAY.length]} />
+                <Cell key={i} fill={CHART_COLOR_ARRAY[i % CHART_COLOR_ARRAY.length]} />
               ))}
             </Bar>
           </BarChart>
@@ -37,7 +37,7 @@ export function AgingCard() {
       </div>
 
       {/* Summary table */}
-      <table className="w-full text-[16px]">
+      <table className="w-full text-[var(--text-body)]">
         <thead>
           <tr className="text-left text-[var(--txt-secondary)]">
             <th className="pb-2 font-normal">Faixa</th>

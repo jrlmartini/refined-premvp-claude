@@ -22,8 +22,8 @@ function Sparkline({
   return (
     <div className="rounded-[var(--radius-sm)] border-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-main)] p-4">
       <div className="mb-2 flex items-start justify-between">
-        <p className="text-[16px] text-[var(--txt-secondary)]">{label}</p>
-        <p className="tabular-nums text-[16px] font-bold text-[var(--txt-main)]">{mainValue}</p>
+        <p className="text-[var(--text-body)] text-[var(--txt-secondary)]">{label}</p>
+        <p className="tabular-nums text-[var(--text-h1)] font-bold text-[var(--txt-main)]">{mainValue}</p>
       </div>
       <div className="h-12">
         <ResponsiveContainer width="100%" height="100%">
