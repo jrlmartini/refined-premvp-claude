@@ -36,7 +36,7 @@ export const STATUS_COLORS = {
 
 /** Configuração padrão de eixos */
 export const axisStyle = {
-  tick: { fill: 'var(--txt-secondary)', fontSize: 12, fontFamily: 'var(--font-family)' },
+  tick: { fill: 'var(--txt-secondary)', fontSize: 16, fontFamily: 'var(--font-family)' },
   axisLine: { stroke: 'var(--str-default)' },
   tickLine: false as const,
 }

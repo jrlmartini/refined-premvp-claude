@@ -27,7 +27,7 @@ export function RevenueCard() {
             <YAxis {...axisStyle} tickFormatter={(v: number) => formatBRL(v)} />
             <Tooltip content={<ChartTooltip formatValue={(v) => formatBRL(v)} />} />
             <Legend
-              wrapperStyle={{ fontSize: 12, color: 'var(--txt-secondary)' }}
+              wrapperStyle={{ fontSize: 16, color: 'var(--txt-secondary)' }}
             />
             <Line
               type="monotone"
@@ -57,10 +57,10 @@ function KPIBlock({ label, value, meta, delta }: { label: string; value: number;
   const isPositive = delta >= 0
   return (
     <div>
-      <p className="text-[12px] text-[var(--txt-secondary)]">{label}</p>
+      <p className="text-[16px] text-[var(--txt-secondary)]">{label}</p>
       <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">{formatBRL(value)}</p>
       <div className="mt-2 flex items-center gap-2">
-        <span className="text-[14px] text-[var(--txt-muted)]">Meta: {formatBRL(meta)}</span>
+        <span className="text-[16px] text-[var(--txt-muted)]">Meta: {formatBRL(meta)}</span>
         <Badge variant={isPositive ? 'success' : 'danger'}>
           {isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
           {formatPercent(Math.abs(delta))}

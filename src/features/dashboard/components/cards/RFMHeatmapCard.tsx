@@ -23,7 +23,7 @@ export function RFMHeatmapCard() {
       <CardHeader title="Heatmap RFM" subtitle="Recência × Frequência (clientes)" />
 
       <div className="overflow-x-auto">
-        <table className="w-full text-center text-[14px]">
+        <table className="w-full text-center text-[16px]">
           <thead>
             <tr>
               <th className="pb-4 text-left text-[var(--txt-secondary)] font-normal">Recência</th>
@@ -50,10 +50,10 @@ export function RFMHeatmapCard() {
                           opacity: getOpacity(cell.value),
                         }}
                       >
-                        <span className="tabular-nums text-[18px] font-bold text-[var(--txt-main)]">
+                        <span className="tabular-nums text-[20px] font-bold text-[var(--txt-main)]">
                           {cell.count}
                         </span>
-                        <span className="text-[12px] text-[var(--txt-main)]">clientes</span>
+                        <span className="text-[16px] text-[var(--txt-main)]">clientes</span>
                       </div>
                     </td>
                   )

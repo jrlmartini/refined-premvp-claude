@@ -17,14 +17,14 @@ export function ChartTooltip({ active, payload, label, formatValue }: ChartToolt
   return (
     <div className="rounded-[var(--radius-sm)] border-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-card)] px-4 py-2 shadow-lg">
       {label != null && (
-        <p className="mb-2 text-[12px] text-[var(--txt-secondary)]">{String(label)}</p>
+        <p className="mb-2 text-[16px] text-[var(--txt-secondary)]">{String(label)}</p>
       )}
       {payload.map((p) => {
         const name = String(p.name ?? '')
         const value = formatValue ? formatValue(Number(p.value), name) : String(p.value)
         const color = String(p.color ?? 'var(--chart-1)')
         return (
-          <div key={name} className="flex items-center gap-2 text-[14px]">
+          <div key={name} className="flex items-center gap-2 text-[16px]">
             <span
               className="inline-block h-2 w-2 rounded-full"
               style={{ backgroundColor: color }}

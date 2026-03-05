@@ -17,7 +17,7 @@ export function EbitdaCard() {
       <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">
         {formatBRL(current)}
       </p>
-      <p className="mb-4 text-[14px] text-[var(--txt-secondary)]">Acumulado do período</p>
+      <p className="mb-4 text-[16px] text-[var(--txt-secondary)]">Acumulado do período</p>
 
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">
@@ -33,7 +33,7 @@ export function EbitdaCard() {
                 />
               }
             />
-            <Legend wrapperStyle={{ fontSize: 12, color: 'var(--txt-secondary)' }} />
+            <Legend wrapperStyle={{ fontSize: 16, color: 'var(--txt-secondary)' }} />
             <Bar yAxisId="left" dataKey="value" name="EBITDA" fill={CHART_COLORS.chart1} radius={[4, 4, 0, 0]} />
             <Line
               yAxisId="right"

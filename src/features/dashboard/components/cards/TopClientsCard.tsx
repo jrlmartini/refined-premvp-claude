@@ -36,7 +36,7 @@ export function TopClientsCard() {
 
         {/* Table */}
         <div className="flex-1">
-          <table className="w-full text-[14px]">
+          <table className="w-full text-[16px]">
             <thead>
               <tr className="text-left text-[var(--txt-secondary)]">
                 <th className="pb-2 font-normal">Cliente</th>
@@ -46,7 +46,10 @@ export function TopClientsCard() {
             </thead>
             <tbody>
               {topClientsData.map((client, i) => (
-                <tr key={client.name} className="border-t-[var(--border-default)] border-[var(--str-default)]">
+                <tr
+                  key={client.name}
+                  className="border-t-[var(--border-default)] border-[var(--str-default)] transition-colors hover:border-x-[var(--border-highlight)] hover:border-x-[var(--str-hover)]"
+                >
                   <td className="py-2 flex items-center gap-2">
                     <span
                       className="inline-block h-2 w-2 rounded-full"

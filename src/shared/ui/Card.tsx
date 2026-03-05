@@ -30,9 +30,11 @@ export function CardHeader({ title, subtitle, action, className }: CardHeaderPro
   return (
     <div className={cn('mb-4 flex items-start justify-between', className)}>
       <div>
-        <h2 className="text-[20px] font-semibold text-[var(--txt-main)]">{title}</h2>
+        <h2 className="overflow-hidden text-[20px] font-semibold text-[var(--txt-main)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+          {title}
+        </h2>
         {subtitle && (
-          <p className="mt-2 text-[14px] text-[var(--txt-secondary)]">{subtitle}</p>
+          <p className="mt-2 text-[16px] text-[var(--txt-secondary)]">{subtitle}</p>
         )}
       </div>
       {action && <div className="ml-4 shrink-0">{action}</div>}

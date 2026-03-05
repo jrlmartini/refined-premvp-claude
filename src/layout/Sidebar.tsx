@@ -52,7 +52,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
         {/* Logo */}
         <div className="flex h-16 items-center justify-between border-b-[var(--border-default)] border-[var(--str-default)] px-4">
           {!collapsed && (
-            <span className="text-[18px] font-bold text-[var(--txt-main)]">Conatus</span>
+            <span className="text-[20px] font-bold text-[var(--txt-main)]">Conatus</span>
           )}
           <button
             onClick={() => {
@@ -73,10 +73,10 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
               <li key={item.label}>
                 <button
                   className={cn(
-                    'flex w-full items-center gap-4 rounded-[var(--radius-sm)] px-4 py-2 text-[14px] transition-colors',
+                    'flex w-full items-center gap-4 rounded-[var(--radius-sm)] px-4 py-2 text-[16px] transition-colors',
                     item.active
                       ? 'border-[var(--border-selected)] border-[var(--str-hover)] bg-[var(--bg-card)] text-[var(--txt-main)]'
-                      : 'border-[var(--border-default)] border-transparent text-[var(--txt-secondary)] hover:border-[var(--str-default)] hover:text-[var(--txt-main)]',
+                      : 'border-[var(--border-default)] border-transparent text-[var(--txt-secondary)] hover:border-[var(--str-hover)] hover:border-[var(--border-highlight)] hover:text-[var(--txt-main)]',
                   )}
                   title={collapsed ? item.label : undefined}
                 >
@@ -91,7 +91,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
         {/* Footer */}
         <div className="border-t-[var(--border-default)] border-[var(--str-default)] p-4">
           {!collapsed && (
-            <p className="text-[12px] text-[var(--txt-muted)]">v1.0.0</p>
+            <p className="text-[16px] text-[var(--txt-muted)]">v1.0.0</p>
           )}
         </div>
       </aside>
