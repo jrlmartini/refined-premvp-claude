@@ -17,7 +17,7 @@ export function EbitdaCard() {
       <p className="tabular-nums text-[30px] font-bold text-[var(--txt-main)] leading-tight">
         {formatBRL(current)}
       </p>
-      <p className="mb-4 text-[13px] text-[var(--txt-secondary)]">Acumulado do período</p>
+      <p className="mb-4 text-[14px] text-[var(--txt-secondary)]">Acumulado do período</p>
 
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">

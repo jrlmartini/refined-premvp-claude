@@ -23,12 +23,12 @@ export function RFMHeatmapCard() {
       <CardHeader title="Heatmap RFM" subtitle="Recência × Frequência (clientes)" />
 
       <div className="overflow-x-auto">
-        <table className="w-full text-center text-[13px]">
+        <table className="w-full text-center text-[14px]">
           <thead>
             <tr>
-              <th className="pb-3 text-left text-[var(--txt-secondary)] font-normal">Recência</th>
+              <th className="pb-4 text-left text-[var(--txt-secondary)] font-normal">Recência</th>
               {FREQUENCY_LABELS.map((f) => (
-                <th key={f} className="pb-3 text-[var(--txt-secondary)] font-normal">{f}</th>
+                <th key={f} className="pb-4 text-[var(--txt-secondary)] font-normal">{f}</th>
               ))}
             </tr>
           </thead>
@@ -40,7 +40,7 @@ export function RFMHeatmapCard() {
                   const cell = rfmData.find((c) => c.recency === r && c.frequency === f)
                   if (!cell) return <td key={f} />
                   return (
-                    <td key={f} className="p-1.5">
+                    <td key={f} className="p-2">
                       <div
                         className={cn(
                           'mx-auto flex h-16 w-full max-w-24 flex-col items-center justify-center rounded-[var(--radius-sm)]',
@@ -53,7 +53,7 @@ export function RFMHeatmapCard() {
                         <span className="tabular-nums text-[18px] font-bold text-[var(--txt-main)]">
                           {cell.count}
                         </span>
-                        <span className="text-[11px] text-[var(--txt-main)]">clientes</span>
+                        <span className="text-[12px] text-[var(--txt-main)]">clientes</span>
                       </div>
                     </td>
                   )
