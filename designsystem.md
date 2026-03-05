@@ -22,6 +22,7 @@
 9. **Subtle shadows** are permitted, but can be used in small details
 10. **Subtle gradients** are permitted, but can be used in small details
 
+**IMPORTANT** Treat this file as authoritative. If there’s any ambiguity, infer the most consistent rule from the document and apply it uniformly.
 ---
 
 ## 1) Foundations
@@ -69,10 +70,8 @@ Apply to all KPIs, tables, and tooltips:
 ## 2) Color system (canonical tokens)
 
 > **Do not add colors. Do not adjust hues. Use gradients with caution.**
-> 
-> 
+
 > If transparency is needed, apply opacity at implementation level (Tailwind opacity utilities), not by inventing new HEX values.
-> 
 
 ### 2.1 Core UI tokens
 
@@ -99,10 +98,14 @@ Apply to all KPIs, tables, and tooltips:
 ### 3.1 Grid & alignment (dashboard)
 
 - Use an **8px spacing system** (8, 16, 24, 32, 40…).
-- Prefer **12-column layout** for desktop dashboards:
+- Use **12-column layout** for desktop dashboards:
     - Gutters: 24px
     - Card padding: 16–24px (use 24px for KPI-heavy cards)
 - Align KPI numbers to the **baseline** where possible; align multiple KPI values using `tabular-nums`.
+    - Cards placed in this grid must use colSpan and rowSpan (and not set custom widths/heights).
+    - Enforce perfect alignment horizontally and vertically
+
+
 
 ### 3.2 Kiosk mode rules
 
@@ -307,8 +310,63 @@ Use these colors **in order** for series/categories. Do not reorder unless you a
 - Default filter components must come from shadcn (Select, Popover, Calendar, Command).
 
 ---
+## 12) Card Rules
+### 12.1 Card container (surface, border, radius)
+-Surface: bg-card
+-Radius: radius-md (12px)
+-Border (default): 0.5px str-default
+-Hover / focus-visible: 1.5px str-hover (background stays bg-card)
+-Selected: 1px str-hover
+-No heavy shadows / glows. If any shadow exists, it must be subtle and secondary to borders.
 
-## 10) shadcn/ui token mapping (implementation guidance)
+###12.2 Card sizing model (guaranteed alignment across rows/columns)
+Cards are sized only by grid spans, never by arbitrary pixel widths.
+
+Width (columns)
+-Cards must specify colSpan (integer columns in a 12-col grid).
+-Allowed spans (recommended): 3, 4, 6, 8, 12.
+-Do not set card width in px/% inside the dashboard grid—only colSpan.
+
+Height (rows)
+Guarantee “two cards + the gap equals one larger card” vertically as well, cards must also specify rowSpan:
+-Base row unit: 64px (8 × 8, fully compliant with the 8px system).
+-Cards must specify rowSpan as an integer.
+-Recommended row spans: 3–8 (tune as needed), e.g.:
+ -3 = compact KPI
+ -4–5 = standard chart
+ -6–8 = table / dense content
+
+Alignment guarantee
+Within the dashboard grid, gaps are inherently included in span sizing:
+Two cards whose colSpan sums to X will align exactly with one card of colSpan = X.
+Same principle for rowSpan when using a row-based grid.
+
+### 12.3 Internal padding & text insets (prevent “text hugging borders”)
+Card padding: must be 16px (default) or 24px (KPI-heavy cards). No other padding values.
+Minimum text inset: no text element (title, KPI, labels, table headers) may be closer than the card padding to the card border.
+
+Internal spacing: use only the 8px scale:
+-Title → content: 8–16px
+-Label → KPI value: 8px
+-Stacked sections (header/body/footer): 16px between sections
+
+###12.4 Card structure (consistent composition)
+Every card must follow the same regions (even if some are empty):
+- Header: title + optional actions
+- Title uses Heading 2 (20px SemiBold); max 2 lines, then ellipsis.
+- Body: main content (chart/table/KPIs)
+- Charts must stay visually centered within the body.
+- Footer (optional): secondary metrics, notes, timestamps
+
+Overflow rule (non-negotiable for fixed sizing):
+- Card height never grows based on content.
+- If content exceeds available space, the body scrolls (or content truncates/paginates). Do not break the grid.
+
+###12.5 KPI alignment inside cards
+- KPI numbers use Display (30px Bold) and tabular-nums.
+- When multiple KPI values appear in the same row/column, align them on a baseline where possible and keep consistent label/value spacing.
+
+## 11) shadcn/ui token mapping (implementation guidance)
 
 > shadcn commonly uses CSS variables. Keep the **source palette** exactly as defined above.
 > 
@@ -330,7 +388,7 @@ Recommended mapping:
 
 ---
 
-## 11) Quality & consistency checklist (use before shipping screens)
+## 12) Quality & consistency checklist (use before shipping screens)
 
 - [ ]  Only approved HEX tokens are used (no new colors).
 - [ ]  KPI numbers use Display (30) and tabular numbers.
@@ -343,7 +401,7 @@ Recommended mapping:
 
 ---
 
-## 12) Known issues / intentional constraints (do not “fix” by adding colors)
+## 13) Known issues / intentional constraints (do not “fix” by adding colors)
 
 1. `txt-modal` is not suitable as default modal text on dark surfaces; it is reserved for high-chroma/filled backgrounds to preserve contrast.
 2. Any alpha/transparency must be applied via opacity utilities, not by inventing new HEX colors.
