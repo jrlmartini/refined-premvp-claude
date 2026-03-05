@@ -20,7 +20,7 @@ function Sparkline({
   const chartData = data.map((v, i) => ({ idx: i, value: v }))
 
   return (
-    <div className="rounded-[var(--radius-sm)] border-[0.5px] border-[var(--str-default)] bg-[var(--bg-main)] p-3">
+    <div className="rounded-[var(--radius-sm)] border-[var(--border-default)] border-[var(--str-default)] bg-[var(--bg-main)] p-4">
       <div className="mb-2 flex items-start justify-between">
         <p className="text-[12px] text-[var(--txt-secondary)]">{label}</p>
         <p className="tabular-nums text-[16px] font-bold text-[var(--txt-main)]">{mainValue}</p>
@@ -61,7 +61,7 @@ export function ShowcaseCard() {
       </div>
 
       {/* Sparklines */}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Sparkline
           data={sparklineData.revenue}
           color={CHART_COLORS.chart1}

@@ -37,7 +37,7 @@ export function AgingCard() {
       </div>
 
       {/* Summary table */}
-      <table className="w-full text-[13px]">
+      <table className="w-full text-[14px]">
         <thead>
           <tr className="text-left text-[var(--txt-secondary)]">
             <th className="pb-2 font-normal">Faixa</th>
@@ -48,11 +48,11 @@ export function AgingCard() {
         </thead>
         <tbody>
           {agingData.map((bucket) => (
-            <tr key={bucket.range} className="border-t-[0.5px] border-[var(--str-default)]">
-              <td className="py-1.5 text-[var(--txt-main)]">{bucket.range}</td>
-              <td className="tabular-nums py-1.5 text-right text-[var(--txt-main)]">{formatBRL(bucket.amount)}</td>
-              <td className="tabular-nums py-1.5 text-right text-[var(--txt-secondary)]">{bucket.count}</td>
-              <td className="py-1.5 text-right">
+            <tr key={bucket.range} className="border-t-[var(--border-default)] border-[var(--str-default)]">
+              <td className="py-2 text-[var(--txt-main)]">{bucket.range}</td>
+              <td className="tabular-nums py-2 text-right text-[var(--txt-main)]">{formatBRL(bucket.amount)}</td>
+              <td className="tabular-nums py-2 text-right text-[var(--txt-secondary)]">{bucket.count}</td>
+              <td className="py-2 text-right">
                 <Badge variant={bucket.range === '> 90 dias' ? 'danger' : bucket.range === '61-90 dias' ? 'warning' : 'default'}>
                   {formatPercent(bucket.percentage)}
                 </Badge>
